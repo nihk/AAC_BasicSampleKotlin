@@ -48,8 +48,8 @@ class ProductAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
-        return ProductViewHolder(view)
+        return LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
+            .let { ProductViewHolder(it) }
     }
 
     override fun getItemCount() = productList.size

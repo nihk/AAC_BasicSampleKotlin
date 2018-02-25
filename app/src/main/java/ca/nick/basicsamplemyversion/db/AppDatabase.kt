@@ -15,7 +15,7 @@ import ca.nick.basicsamplemyversion.db.dao.ProductDao
 import ca.nick.basicsamplemyversion.db.entities.CommentEntity
 import ca.nick.basicsamplemyversion.db.entities.ProductEntity
 
-@Database(entities = [ProductEntity::class, CommentEntity::class], version = 1)
+@Database(entities = [ProductEntity::class, CommentEntity::class], version = 1, exportSchema = false)
 @TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -26,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
     val isDatabaseCreated: MutableLiveData<Boolean> = MutableLiveData()
 
     companion object {
-        private const val DATABASE_NAME = "sample"
+        const val DATABASE_NAME = "sample"
 
         @Volatile
         private var INSTANCE: AppDatabase? = null
